@@ -1,3 +1,4 @@
+//import statements
 const express = require("express");
 const bodyParser = require('body-parser');
 const getAllData = require("../controllers/hockeyController").getAllData;
