@@ -7,6 +7,6 @@ const app = express();
 app.use(bodyParser.json());
 
 app.get('/hockey', getAllData);
-app.get('/hockey/:flex', getSingleData)
+app.get('/hockey/:flex/:curve/:ageLevel/:price', getSingleData)
 
 module.exports = app;

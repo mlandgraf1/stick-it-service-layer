@@ -9,6 +9,8 @@ app.use(bodyParser.json());
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.use(express.static(__dirname + "/stick-it-user-interface"))
+
 const client = new Client({
   connectionString: "postgresql://postgres:bluesfan13092@127.0.0.1:5432/stickit"
 });
@@ -24,8 +26,12 @@ app.get("/", (req, res) => {
   res.send("This is home page");
 });
 
+// app.all("*", (req, res) => {
+//     res.send('endpoint does not exist');
+// })
+
 app.use("/", hockeyRoute);
 
 const PORT = process.env.PORT || 3000;
 
-app.listen(PORT, () => console.log("server is running..."));
+app.listen(PORT, () => console.log(`server is running on port ${PORT}...`));

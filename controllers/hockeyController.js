@@ -14,14 +14,12 @@ const getAllData = (req, res) => {
 };
 
 const getSingleData = (req, res) => {
-//   const flex = parseInt(req.params.flex, 10);
-// const curve = req.params.curve;
-const flex = parseInt(req.params.flex, 10);
+  const { flex, curve, ageLevel, price } = req.params;
   client.query(
-    `SELECT * FROM sticks WHERE flex = ${flex}`,
+    `SELECT * FROM sticks WHERE flex::text like '%${flex}%' AND curve::text like '%${curve}%' AND ageLevel::text like '%${ageLevel}%' AND price::text like '%${price}%'`,
     (err, resp) => {
       if (err) {
-        res.send({error: err});
+        res.send({ error: err });
       } else {
         res.send(resp.rows);
       }
