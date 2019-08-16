@@ -20,7 +20,7 @@ const getSingleData = (req, res) => {
   const { flex, curve, ageLevel, price } = req.params;
   //SQL query to be sent with parameters flex, curve, ageLevel, price
   client.query(
-    `SELECT * FROM sticks WHERE flex::text like '%${flex}%' AND curve::text like '%${curve}%' AND ageLevel::text like '%${ageLevel}%' AND price::text like '%${price}%'`,
+    `SELECT * FROM sticks WHERE flex::text like '%${flex}%' AND curve::text like '%${curve}%' AND ageLevel::text like '%${ageLevel}%' AND price < ${price}`,
     (err, resp) => {
       if (err) {
         res.send({ error: err });

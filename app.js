@@ -28,7 +28,7 @@ client
   .catch(err => console.log("error connecting to the database", err));
 
 app.get("/", (req, res) => {
-  res.send("This is home page");
+  res.send("This is the home page");
 });
 
 
