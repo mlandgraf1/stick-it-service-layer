@@ -1,0 +1,32 @@
+{
+  "name": "stick-it-service-layer",
+  "version": "1.0.0",
+  "description": "The Stick It application is a web application that is used to determine what hockey stick works best for a player based on the input provided by the user. This application is meant to solve the problem of young hockey players and casual adult players having difficulties identifying what kind of hockey stick best fits their needs as a player. Stick It will solve this problem by using information inputted by the user to determine a hockey stick that best matches their criteria.",
+  "main": "app.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "mocha 'test/tests.js'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mlandgraf1/stick-it-service-layer.git"
+  },
+  "author": "Maureen Landgraf",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mlandgraf1/stick-it-service-layer/issues"
+  },
+  "homepage": "https://github.com/mlandgraf1/stick-it-service-layer#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "pg": "^7.12.1"
+  },
+  "devDependencies": {
+    "mocha": "^6.2.0",
+    "supertest": "^4.0.2"
+  }
+}
