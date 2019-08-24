@@ -24,6 +24,8 @@ const getSingleData = (req, res) => {
     (err, resp) => {
       if (err) {
         res.send({ error: err });
+      }else if(!resp.rows.length){
+        res.status(404).send({errorMsg: "No stick was found matching your criteria. Please try again."});
       } else {
         res.send(resp.rows);
       }
