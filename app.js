@@ -1,4 +1,5 @@
 //import statements
+require('dotenv').config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const Client = require("pg").Client;
@@ -10,11 +11,11 @@ app.use(bodyParser.json());
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(express.static(__dirname + "/stick-it-user-interface"))
+app.use(express.static(__dirname + "/stick-it-user-interface"));
 
 //Identify database to connect to in postgres
 const client = new Client({
-  connectionString: "postgresql://postgres:bluesfan13092@127.0.0.1:5432/stickit"
+  connectionString: process.env.DATABASE_URL
 });
 
 global.client = client;
@@ -31,10 +32,9 @@ app.get("/", (req, res) => {
   res.send("This is the home page");
 });
 
-
 app.use("/", hockeyRoute);
 
-const PORT = process.env.PORT || 3000;
+const PORT = 3000;
 
 app.listen(PORT, () => console.log(`server is running on port ${PORT}...`));
 
