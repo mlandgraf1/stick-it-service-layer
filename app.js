@@ -36,6 +36,6 @@ app.use("/", hockeyRoute);
 
 const PORT = 3000;
 
-app.listen(PORT, () => console.log(`server is running on port ${PORT}...`));
+app.listen(process.env.PORT || PORT, () => console.log(`server is running on port ${process.env.PORT}...`));
 
 module.exports = app;
