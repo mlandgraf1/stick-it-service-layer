@@ -15,7 +15,7 @@ app.use(express.static(__dirname + "/stick-it-user-interface"));
 
 //Identify database to connect to in postgres
 const client = new Client({
-  connectionString: process.env.DATABASE_URL
+  connectionString: 'postgresql://postgres:bluesfan13092@127.0.0.1:5432/stickit'
 });
 
 global.client = client;
