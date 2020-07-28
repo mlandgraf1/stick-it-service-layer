@@ -15,7 +15,7 @@ app.use(express.static(__dirname + "/stick-it-user-interface"));
 
 //Identify database to connect to in postgres
 const client = new Client({
-  connectionString: process.env.DATABASE_URL
+  connectionString: 'postgresql://postgres:bluesfan13092@127.0.0.1:5432/stickit'
 });
 
 global.client = client;
@@ -34,8 +34,8 @@ app.get("/", (req, res) => {
 
 app.use("/", hockeyRoute);
 
-const PORT = 3000;
+//const PORT = 3000;
 
-app.listen(process.env.PORT || PORT, () => console.log(`server is running on port ${process.env.PORT}...`));
+app.listen(process.env.PORT || 3000, () => console.log(`server is running on port ${process.env.PORT}...`));
 
 module.exports = app;
