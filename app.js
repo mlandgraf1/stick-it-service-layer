@@ -34,7 +34,7 @@ app.get("/", (req, res) => {
 
 app.use("/", hockeyRoute);
 
-const PORT = 3000;
+const PORT = process.env.port || 3000;
 
 app.listen(PORT, () => console.log(`server is running on port ${PORT}...`));
 
